@@ -1,4 +1,4 @@
-name: ASP.NET Core CI
+name: ASP.NET Core CI/CD
 
 on:
   push:
@@ -11,19 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: 🧾 Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup .NET
+    - name: 🛠️ Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: 📦 Restore dependencies
+      run: dotnet restore ./demoApi/demoApi.csproj
 
-    - name: Build
-      run: dotnet build --configuration Release
+    - name: 🏗️ Build project
+      run: dotnet build ./demoApi/demoApi.csproj --configuration Release --no-restore
 
-    - name: Publish
-      run: dotnet publish -c Release -o ./publish
+    - name: 🚀 Publish project
+      run: dotnet publish ./demoApi/demoApi.csproj --configuration Release --output ./publish --no-restore
+
+    - name: 📤 Upload published files
+      uses: actions/upload-artifact@v4
+      with:
+        name: Published App
+        path: ./publish
