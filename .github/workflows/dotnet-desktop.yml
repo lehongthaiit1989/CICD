@@ -21,10 +21,15 @@ jobs:
 
     - name: 📦 Restore dependencies
       run: dotnet restore ./demoApi/demoApi.csproj
-
+    
+    - name: 🏗️ Build lth.bussines
+      run: dotnet build ./lth.bussines/lth.bussines.csproj --configuration Release --no-restore
+    
     - name: 🏗️ Build project
       run: dotnet build ./demoApi/demoApi.csproj --configuration Release --no-restore
-
+    
+   
+   
     - name: 🚀 Publish project
       run: dotnet publish ./demoApi/demoApi.csproj --configuration Release --output ./publish --no-restore
 
