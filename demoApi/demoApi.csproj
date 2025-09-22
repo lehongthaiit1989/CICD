@@ -5,10 +5,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
+    <UserSecretsId>8e198cbf-97fd-44f1-a02a-fadf1246fb8e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
