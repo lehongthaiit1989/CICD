@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'lehongthai'
           slot-name: 'Production'
-          package: .
+          package: ./myapp
           
